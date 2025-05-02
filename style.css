@@ -1,0 +1,205 @@
+/* PREVENT SELECTION */
+* {
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;     
+  user-select: none;        
+}
+
+html,
+body,
+#root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: ivory;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  /* prevent double click zoom */
+  touch-action: manipulation; 
+
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 24px;
+}
+
+
+.middle-screen{
+  position: absolute;
+  top:  80%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-80%);
+  padding: 10px 20px;
+  border-radius: 12px;
+  background: teal;
+  transition: background 0.2s;
+  color: white;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  height: 50px;
+  z-index: 1000;
+  pointer-events: auto;
+  cursor: pointer;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.middle-screen:active{
+  background: rgb(199, 220, 62);
+}
+.middle-screen-info{
+  position: absolute;
+  top:  100%;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%) translateY(-100%);
+  transition: background 0.2s;
+  color: rgb(2, 2, 2);
+  border: none;
+  font-size: 20px;
+  /* font-weight: bold; */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-shadow: 0px 3px 2px rgba(111, 80, 80, 0.32);
+}
+
+
+/*XRDomOverlay */
+#interface {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  /* DE-ACTIVATE MOUSE EVENTS (HTML TEXT CAN'T BE SELECTED, RIGHT-CLICK OPTIONS, ETC.) */
+  pointer-events: none;
+
+}
+
+
+.vertical-left-column-top {
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: flex-start; /* children align left */
+  justify-content: flex-start; /* children align from top */
+}
+
+.vertical-left-column-bottom {
+  position: absolute;
+  top: 95%;
+  left: 10px;
+  transform: translateY(-95%);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: flex-start; /* children align left */
+  justify-content: flex-end; /* children align from top */
+}
+
+
+
+.vertical-right-column-top {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: flex-start; /* children align left */
+  justify-content: flex-start; /* children align from top */
+}
+
+.vertical-right-column-bottom {
+  position: absolute;
+  top: 95%;
+  transform: translateY(-95%);
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: flex-start; /* children align left */
+  justify-content: flex-end; /* children align from top */
+}
+
+.icon-right {
+ 
+  margin-right: 10px;
+  border-radius: 20%;
+  background: rgba(164, 169, 169, 0.5);
+  transition: background 0.2s;
+  color: #fbfcfc;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.4);
+  /* RE-ACTIVATE MOUSE EVENTS ON THIS ELEMENT (OVERRIDING THE PARENT) */
+  pointer-events: auto;
+  cursor: pointer;
+  font-size: 15px; /* Optional */
+  font-weight: bold; /* Optional */
+  text-shadow: 0px 3px 2px rgba(111, 80, 80, 0.32);
+}
+
+.icon-left {
+ 
+  margin-left: 10px;
+  border-radius: 20%;
+  background: rgba(164, 169, 169, 0.5);
+  transition: background 0.2s;
+  color: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.4);
+  text-shadow: 0px 3px 2px rgba(111, 80, 80, 0.32);
+  /* RE-ACTIVATE MOUSE EVENTS ON THIS ELEMENT (OVERRIDING THE PARENT) */
+  pointer-events: auto;
+  cursor: pointer;
+  font-size: 13px; /* Optional */
+  font-weight:200 
+}
+
+
+
+
+/* Responsive styles */
+@media (max-width: 375px) {
+
+  .vertical-left-column {
+    gap: 20px;
+  }
+
+  .vertical-right-column {
+    gap: 20px;
+  }
+
+  .icon-right{
+    width: 45px;
+    height: 45px;
+  }
+  .icon-left{
+    width: 45px;
+    height: 45px;
+  }
+
+}

@@ -1,0 +1,39 @@
+# 🖌️ WebXR Sumi-e
+
+**WebXR Sumi-e** is a small experiment exploring how traditional Japanese **sumi-e** (ink painting) can be translated into a 3D drawing experience using WebXR.
+
+It works in AR/VR headsets and lets users draw brush-like strokes in 3D space using controllers or in your browser with a mouse or with touch.
+
+---
+
+## 🎮 Controls (Headset)
+
+- **Draw:** Use controllers  
+- **Button A:** Undo last stroke  
+- **Button B:** Clear all strokes  
+- **Button Y:** Increase brush size  
+- **Button X:** Decrease brush size  
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frameworks:** React, React Three Fiber, React XR  
+- **State Management:** Jotai  
+- **Language:** TypeScript  
+- **Assets:** Skybox (top hemisphere) modeled and hand-painted in Blender  
+
+---
+
+## 🗓️ TODO
+
+- [ ] Implement **mobile AR drawing** support  
+
+---
+
+## 💡 Future Ideas
+
+- 🌐 Multiplayer networking for collaborative drawing  
+- 📦 Export drawings to **OBJ** or **USDZ**  
+- 🔁 Stroke playback/replay  
+- 🉐 Kanji character recognition  
