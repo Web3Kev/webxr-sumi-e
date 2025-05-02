@@ -1,9 +1,9 @@
-import { IfInSessionMode, useXR } from "@react-three/xr";
-import React, { useEffect } from "react";
+import { IfInSessionMode } from "@react-three/xr";
+import React from "react";
 import { Skybox } from "./skybox";
 import { BackSide } from "three";
 import { useAtom } from "jotai";
-import { drawAtom, xrAtom } from "./atom";
+import { drawAtom } from "./atom";
 import { OrbitControls } from "@react-three/drei";
 
 
@@ -13,21 +13,6 @@ interface ZenSceneProps {
 export const ZenScene: React.FC<ZenSceneProps> = ({
 }) => {
   const [draw] = useAtom(drawAtom)
-  const [, setIsAR] = useAtom(xrAtom)
-  const XRstate = useXR().visibilityState;
-
-useEffect(() => {
-    
-  if(XRstate==="visible")
-  {
-    setIsAR(true);
-  }
-  else
-  {
-    setIsAR(false);
-  }
-    
-}, [XRstate])
 
   return (
   
