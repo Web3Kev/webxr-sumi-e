@@ -228,21 +228,34 @@ const GameOverlayUI: React.FC<GameOverlayUIProps> = ({store = null }) => {
       <button 
           className="icon-left"
           onClick={increase}
-          style={{
-            fontSize:"50px"
-          }}
+         
         >
-          +
+          <img 
+            src="plus.png"  
+            alt="plus"
+            style={{
+              position: 'absolute',
+              width: "45px", 
+              height: "45px",
+              objectFit: "contain",
+              transition: 'opacity 0.3s',
+            }}/>
         </button>
         <button 
           className="icon-left"
           onClick={decrease}
-          style={{
-            fontSize:"50px",
-            paddingBottom:"8px"
-          }}
+          
         >
-          -
+          <img 
+            src="minus.png"  
+            alt="minus"
+            style={{
+              position: 'absolute',
+              width: "45px", 
+              height: "45px",
+              objectFit: "contain",
+              transition: 'opacity 0.3s',
+            }}/>
         </button>
       
      
