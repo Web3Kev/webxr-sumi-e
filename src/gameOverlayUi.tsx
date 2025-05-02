@@ -10,7 +10,7 @@ interface GameOverlayUIProps {
  domOverlay?: boolean | null
 }
 
-const GameOverlayUI: React.FC<GameOverlayUIProps> = ({store = null, domOverlay = null }) => {
+const GameOverlayUI: React.FC<GameOverlayUIProps> = ({store = null }) => {
 
     const [radius] = useAtom(baseTubeRadiusAtom)
   
@@ -58,6 +58,19 @@ const GameOverlayUI: React.FC<GameOverlayUIProps> = ({store = null, domOverlay =
       }
     };
 
+    useEffect(() => {
+        
+      if(isXR)
+      {
+        console.log("XR",isXR)
+      }
+      else
+      {
+        console.log("XR",isXR)
+      }
+        
+    }, [isXR])
+
   return (
     <div id='interface' >
 
@@ -83,7 +96,7 @@ const GameOverlayUI: React.FC<GameOverlayUIProps> = ({store = null, domOverlay =
         >
           VR
         </button>}
-        {domOverlay===true  && isXR && <button
+        {isXR && <button
           onClick={exitAR}
           className='icon-right'
           style={{

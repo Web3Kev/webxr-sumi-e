@@ -13,18 +13,18 @@ interface ZenSceneProps {
 export const ZenScene: React.FC<ZenSceneProps> = ({
 }) => {
   const [draw] = useAtom(drawAtom)
-  const [, setIsXR] = useAtom(xrAtom)
+  const [, setIsAR] = useAtom(xrAtom)
   const XRstate = useXR().visibilityState;
 
 useEffect(() => {
     
   if(XRstate==="visible")
   {
-    setIsXR(true);
+    setIsAR(true);
   }
   else
   {
-    setIsXR(false);
+    setIsAR(false);
   }
     
 }, [XRstate])

@@ -2,7 +2,7 @@
 import { atom } from 'jotai'
 
 // Explicitly type the atom as a number
-export const baseTubeRadiusAtom = atom<number>(0.01)
+export const baseTubeRadiusAtom = atom<number>(0.04)
 export const backAtom = atom<boolean>(false)
 export const clearAtom = atom<boolean>(false)
 export const drawAtom = atom<boolean>(true)
