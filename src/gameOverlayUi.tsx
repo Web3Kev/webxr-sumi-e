@@ -90,23 +90,30 @@ const GameOverlayUI: React.FC<GameOverlayUIProps> = ({store = null }) => {
             onClick={() => setDraw(!draw)}
             className='icon-right'
         >
-          {draw === true ?
-          (<img 
+          <img 
             src="orbit.png"  
             alt="orbit"
+            className={`icon ${draw ? 'visible' : 'hidden'}`}
             style={{
-              width: "45px", 
+              position: 'absolute',
+              width: "45px",
               height: "45px",
               objectFit: "contain",
-            }}/>):(<img 
-              src="draw.png"  
-              alt="draw"
-              style={{
-                width: "45px", 
-                height: "45px",
-                objectFit: "contain",
-              }}/>)
-          }
+              transition: 'opacity 0.3s',
+            }}
+          />
+          <img 
+            src="draw.png"  
+            alt="draw"
+            className={`icon ${!draw ? 'visible' : 'hidden'}`}
+            style={{
+              position: 'absolute',
+              width: "45px",
+              height: "45px",
+              objectFit: "contain",
+              transition: 'opacity 0.3s',
+            }}
+          />
         </button>
 
         {/* erase all */}
@@ -148,23 +155,31 @@ const GameOverlayUI: React.FC<GameOverlayUIProps> = ({store = null }) => {
           className="icon-left"
           onClick={()=>{toggleFullscreen()}}
         >
-          {windowMode === WINDOW_MODE.FULLSCREEN_API  ? (<img 
+          
+          <img 
             src="nscreen.png"  
             alt="full screen"
+            className={`icon ${windowMode === WINDOW_MODE.FULLSCREEN_API  ?  'visible' : 'hidden'}`}
             style={{
+              position: 'absolute',
               width: "45px", 
               height: "45px",
               objectFit: "contain",
-            }}/>):
-            (<img 
+              transition: 'opacity 0.3s',
+            }}/>
+
+            <img 
             src="fscreen.png"  
             alt="full screen"
+            className={`icon ${windowMode != WINDOW_MODE.FULLSCREEN_API  ? 'visible' : 'hidden'}`}
             style={{
+              position: 'absolute',
               width: "45px", 
               height: "45px",
               objectFit: "contain",
-            }}/>)
-            }
+              transition: 'opacity 0.3s',
+            }}/>
+            
         </button>
       </div>
 

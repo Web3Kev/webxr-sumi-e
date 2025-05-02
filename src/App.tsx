@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber'
-import {createXRStore, XR } from '@react-three/xr'
+import {createXRStore, IfInSessionMode, XR, XRDomOverlay } from '@react-three/xr'
 import { Loader} from '@react-three/drei'
 import { Suspense } from 'react'
 import PaintingScene from './paintingScene'
@@ -20,7 +20,15 @@ function App() {
       >
         <Suspense>
           <XR store={store}>
+            
+            <IfInSessionMode allow={['immersive-ar']}>
+              <XRDomOverlay>
+                <GameOverlayUI store={store}/>
+              </XRDomOverlay>
+            </IfInSessionMode>
+
             <PaintingScene/>
+          
           </XR>
         </Suspense>
       </Canvas>

@@ -26,7 +26,7 @@ export const ZenScene: React.FC<ZenSceneProps> = ({
     </IfInSessionMode>
 
     <IfInSessionMode deny={['immersive-ar', 'immersive-vr']}>
-      <OrbitControls enabled={!draw}/>
+      <OrbitControls enabled={!draw} target={[0,2,0]}/>
     </IfInSessionMode>
 
   </group>);

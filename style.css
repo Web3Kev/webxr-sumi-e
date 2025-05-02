@@ -52,6 +52,14 @@ body,
   box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
+.icon.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.icon.visible {
+  opacity: 1;
+}
+
 .middle-screen:active{
   background: rgb(199, 220, 62);
 }
