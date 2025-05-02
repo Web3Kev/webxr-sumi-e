@@ -23,7 +23,7 @@ function App() {
             
             <IfInSessionMode allow={['immersive-ar']}>
               <XRDomOverlay>
-                <GameOverlayUI store={store}/>
+                <GameOverlayUI store={store} domOverlay={true}/>
               </XRDomOverlay>
             </IfInSessionMode>
 

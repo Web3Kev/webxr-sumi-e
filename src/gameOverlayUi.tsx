@@ -7,10 +7,10 @@ import { backAtom, baseTubeRadiusAtom, clearAtom, decreaseRadiusAtom, drawAtom, 
 
 interface GameOverlayUIProps {
  store: XRStore | null
- domOverlay?: boolean | null
+ domOverlay?: boolean
 }
 
-const GameOverlayUI: React.FC<GameOverlayUIProps> = ({store = null }) => {
+const GameOverlayUI: React.FC<GameOverlayUIProps> = ({store = null, domOverlay=false }) => {
 
     const [radius] = useAtom(baseTubeRadiusAtom)
   
@@ -77,7 +77,7 @@ const GameOverlayUI: React.FC<GameOverlayUIProps> = ({store = null }) => {
       <div className="vertical-right-column-top ">
     
         {/* ENTER AR BUTTON */}
-        {!isXR && <button
+        {!domOverlay && <button
           onClick={handleEnterAR}
           className='icon-right'
           style={{
@@ -87,7 +87,7 @@ const GameOverlayUI: React.FC<GameOverlayUIProps> = ({store = null }) => {
           AR
         </button>}
          {/* ENTER VR BUTTON */}
-        {!isXR && <button
+        {!domOverlay && <button
           onClick={handleEnterVR}
           className='icon-right'
           style={{
@@ -96,7 +96,7 @@ const GameOverlayUI: React.FC<GameOverlayUIProps> = ({store = null }) => {
         >
           VR
         </button>}
-        {isXR && <button
+        {domOverlay && <button
           onClick={exitAR}
           className='icon-right'
           style={{
