@@ -437,7 +437,7 @@ useEffect(() => {
     const clientY = (event instanceof TouchEvent ? event.touches[0].clientY : event.clientY)
     const x = ((clientX - rect.left) / rect.width) * 2 - 1
     const y = -((clientY - rect.top) / rect.height) * 2 + 1
-    const vector = new Vector3(x, y, 0.92)
+    const vector = new Vector3(x, y, 0)
     vector.unproject(camera)
     return vector
   }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { XRStore } from '@react-three/xr';
 import { DEVICE, getWindowMode, toggleFullscreen, WINDOW_MODE } from './util';
 import { useAtom } from 'jotai'
-import { backAtom, baseTubeRadiusAtom, clearAtom, decreaseRadiusAtom, drawAtom, increaseRadiusAtom, xrAtom } from './atom'
+import { backAtom, baseTubeRadiusAtom, clearAtom, decreaseRadiusAtom, drawAtom, increaseRadiusAtom } from './atom'
 
 
 interface GameOverlayUIProps {
@@ -19,7 +19,6 @@ const GameOverlayUI: React.FC<GameOverlayUIProps> = ({store = null, domOverlay=f
     const [, setBack] = useAtom(backAtom)
     const [, setClear] = useAtom(clearAtom)
     const [draw, setDraw] = useAtom(drawAtom)
-    const [isXR, ] = useAtom(xrAtom)
 
 
     const [windowMode, setWindowMode] = useState<WINDOW_MODE>(getWindowMode());
@@ -58,18 +57,7 @@ const GameOverlayUI: React.FC<GameOverlayUIProps> = ({store = null, domOverlay=f
       }
     };
 
-    useEffect(() => {
-        
-      if(isXR)
-      {
-        console.log("XR",isXR)
-      }
-      else
-      {
-        console.log("XR",isXR)
-      }
-        
-    }, [isXR])
+
 
   return (
     <div id='interface' >

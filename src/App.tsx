@@ -17,6 +17,7 @@ function App() {
       <Canvas 
         gl={{ localClippingEnabled: true }}
         style={{ width: '100%', flexGrow: 1,touchAction: 'none'  }}
+        camera={{fov: 80  }}
       >
         <Suspense>
           <XR store={store}>
