@@ -6,6 +6,7 @@ export const baseTubeRadiusAtom = atom<number>(0.01)
 export const backAtom = atom<boolean>(false)
 export const clearAtom = atom<boolean>(false)
 export const drawAtom = atom<boolean>(true)
+export const xrAtom = atom<boolean>(false)
 
 // Clamp decrease to min 0.01
 export const decreaseRadiusAtom = atom(null, (get, set) => {

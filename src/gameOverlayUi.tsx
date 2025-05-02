@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { XRStore } from '@react-three/xr';
 import { DEVICE, getWindowMode, toggleFullscreen, WINDOW_MODE } from './util';
 import { useAtom } from 'jotai'
-import { backAtom, baseTubeRadiusAtom, clearAtom, decreaseRadiusAtom, drawAtom, increaseRadiusAtom } from './atom'
+import { backAtom, baseTubeRadiusAtom, clearAtom, decreaseRadiusAtom, drawAtom, increaseRadiusAtom, xrAtom } from './atom'
 
 
 interface GameOverlayUIProps {
  store: XRStore | null
+ domOverlay: boolean | null
 }
 
-const GameOverlayUI: React.FC<GameOverlayUIProps> = ({store = null }) => {
+const GameOverlayUI: React.FC<GameOverlayUIProps> = ({store = null, domOverlay = null }) => {
 
     const [radius] = useAtom(baseTubeRadiusAtom)
   
@@ -18,6 +19,7 @@ const GameOverlayUI: React.FC<GameOverlayUIProps> = ({store = null }) => {
     const [, setBack] = useAtom(backAtom)
     const [, setClear] = useAtom(clearAtom)
     const [draw, setDraw] = useAtom(drawAtom)
+    const [isXR, setIsXR] = useAtom(xrAtom)
 
 
     const [windowMode, setWindowMode] = useState<WINDOW_MODE>(getWindowMode());
@@ -37,12 +39,12 @@ const GameOverlayUI: React.FC<GameOverlayUIProps> = ({store = null }) => {
     }, []);
 
 
-    // const exitAR = () =>{
-    //   if(store)
-    //   {
-    //     store.getState().session?.end()
-    //   }
-    // }
+    const exitAR = () =>{
+      if(store)
+      {
+        store.getState().session?.end()
+      }
+    }
 
     const handleEnterAR = async () => {
       if (store) {
@@ -62,7 +64,7 @@ const GameOverlayUI: React.FC<GameOverlayUIProps> = ({store = null }) => {
       <div className="vertical-right-column-top ">
     
         {/* ENTER AR BUTTON */}
-        <button
+        {!isXR && <button
           onClick={handleEnterAR}
           className='icon-right'
           style={{
@@ -70,9 +72,9 @@ const GameOverlayUI: React.FC<GameOverlayUIProps> = ({store = null }) => {
            }}
         >
           AR
-        </button>
+        </button>}
          {/* ENTER VR BUTTON */}
-         <button
+        {!isXR && <button
           onClick={handleEnterVR}
           className='icon-right'
           style={{
@@ -80,7 +82,16 @@ const GameOverlayUI: React.FC<GameOverlayUIProps> = ({store = null }) => {
           }}
         >
           VR
-        </button>
+        </button>}
+        {domOverlay===true  && isXR && <button
+          onClick={exitAR}
+          className='icon-right'
+          style={{
+           fontSize:"25px"
+          }}
+        >
+          exit
+        </button>}
       </div>
 
       <div className="vertical-right-column-bottom ">
