@@ -7,7 +7,7 @@ import { backAtom, baseTubeRadiusAtom, clearAtom, decreaseRadiusAtom, drawAtom, 
 
 interface GameOverlayUIProps {
  store: XRStore | null
- domOverlay: boolean | null
+ domOverlay?: boolean | null
 }
 
 const GameOverlayUI: React.FC<GameOverlayUIProps> = ({store = null, domOverlay = null }) => {
@@ -19,7 +19,7 @@ const GameOverlayUI: React.FC<GameOverlayUIProps> = ({store = null, domOverlay =
     const [, setBack] = useAtom(backAtom)
     const [, setClear] = useAtom(clearAtom)
     const [draw, setDraw] = useAtom(drawAtom)
-    const [isXR, setIsXR] = useAtom(xrAtom)
+    const [isXR, ] = useAtom(xrAtom)
 
 
     const [windowMode, setWindowMode] = useState<WINDOW_MODE>(getWindowMode());
