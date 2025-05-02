@@ -98,7 +98,7 @@ const GameOverlayUI: React.FC<GameOverlayUIProps> = ({store = null, domOverlay=f
       <div className="vertical-right-column-bottom ">
     
       {/* camera */}
-      <button
+      {!domOverlay &&<button
             onClick={() => setDraw(!draw)}
             className='icon-right'
         >
@@ -126,7 +126,7 @@ const GameOverlayUI: React.FC<GameOverlayUIProps> = ({store = null, domOverlay=f
               transition: 'opacity 0.3s',
             }}
           />
-        </button>
+        </button>}
 
         {/* erase all */}
         <button
