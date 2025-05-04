@@ -28,6 +28,7 @@ It works in AR/VR headsets and lets users draw brush-like strokes in 3D space us
 ## 🗓️ TODO
 
 - [ ] Implement **mobile AR drawing** support  
+- [ ] fix orbit control to target and revolve around center of bounding box of drawn strokes
 
 ---
 
@@ -37,6 +38,7 @@ It works in AR/VR headsets and lets users draw brush-like strokes in 3D space us
 - 📦 Export drawings to **OBJ** or **USDZ**  
 - 🔁 Stroke playback/replay  
 - 🉐 Kanji character recognition  
+- implement on 2D desktop mobile experience the same technique as feather 3D (ipad app) using planes to draw 
 
 ---
 
